@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Klasifikasi dengan ektraksi fitur menggunakan Latent Dirichlet Allocation &#8212; My sample book</title>
+    <title>Klasifikasi dengan ektraksi fitur menggunakan Latent Dirichlet Allocation &#8212; PPW</title>
   
   
   
@@ -158,8 +158,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/foto.jpg" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/foto.jpg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="_static/foto.jpg" class="logo__image only-light" alt="PPW - Home"/>
+    <script>document.write(`<img src="_static/foto.jpg" class="logo__image only-dark" alt="PPW - Home"/>`);</script>
   
   
 </a></div>
@@ -410,77 +410,34 @@ document.write(`
 <h2>Library<a class="headerlink" href="#library" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>nltk<span class="w"> </span>contractions<span class="w"> </span>emoji<span class="w"> </span>pyspellchecker<span class="w"> </span>Sastrawi
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install -q nltk contractions emoji pyspellchecker Sastrawi
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>plotly
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>gensim
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install plotly
+!pip install --upgrade gensim
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: plotly in /home/codespace/.local/lib/python3.12/site-packages (6.4.0)
-Requirement already satisfied: narwhals&gt;=1.15.1 in /home/codespace/.local/lib/python3.12/site-packages (from plotly) (2.10.2)
-Requirement already satisfied: packaging in /home/codespace/.local/lib/python3.12/site-packages (from plotly) (25.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting gensim
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading gensim-4.4.0-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (8.4 kB)
-Requirement already satisfied: numpy&gt;=1.18.5 in /home/codespace/.local/lib/python3.12/site-packages (from gensim) (2.3.4)
-Requirement already satisfied: scipy&gt;=1.7.0 in /home/codespace/.local/lib/python3.12/site-packages (from gensim) (1.16.3)
-Collecting smart_open&gt;=1.8.1 (from gensim)
-  Downloading smart_open-7.5.0-py3-none-any.whl.metadata (24 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting wrapt (from smart_open&gt;=1.8.1-&gt;gensim)
-  Downloading wrapt-2.0.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (9.0 kB)
-Downloading gensim-4.4.0-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (27.9 MB)
-?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/27.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">27.8/27.9 MB</span> <span class=" -Color -Color-Red">149.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">27.8/27.9 MB</span> <span class=" -Color -Color-Red">149.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">27.9/27.9 MB</span> <span class=" -Color -Color-Red">49.1 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
-?25hDownloading smart_open-7.5.0-py3-none-any.whl (63 kB)
-Downloading wrapt-2.0.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (121 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: wrapt, smart_open, gensim
-?25l
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2/3</span> [gensim]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2/3</span> [gensim]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2/3</span> [gensim]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2/3</span> [gensim]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">3/3</span> [gensim]
-?25h
-Successfully installed gensim-4.4.0 smart_open-7.5.0 wrapt-2.0.1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: plotly in /usr/local/lib/python3.12/dist-packages (5.24.1)
+Requirement already satisfied: tenacity&gt;=6.2.0 in /usr/local/lib/python3.12/dist-packages (from plotly) (8.5.0)
+Requirement already satisfied: packaging in /usr/local/lib/python3.12/dist-packages (from plotly) (25.0)
+Requirement already satisfied: gensim in /usr/local/lib/python3.12/dist-packages (4.3.3)
+Requirement already satisfied: numpy&lt;2.0,&gt;=1.18.5 in /usr/local/lib/python3.12/dist-packages (from gensim) (1.26.4)
+Requirement already satisfied: scipy&lt;1.14.0,&gt;=1.7.0 in /usr/local/lib/python3.12/dist-packages (from gensim) (1.13.1)
+Requirement already satisfied: smart-open&gt;=1.8.1 in /usr/local/lib/python3.12/dist-packages (from gensim) (7.3.1)
+Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages (from smart-open&gt;=1.8.1-&gt;gensim) (1.17.3)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
@@ -522,7 +479,7 @@ Successfully installed gensim-4.4.0 smart_open-7.5.0 wrapt-2.0.1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_progress</span><span class="p">(</span><span class="n">kategori</span><span class="p">,</span> <span class="n">current_page</span><span class="p">,</span> <span class="n">total_pages</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_progress</span><span class="p">(</span><span class="n">kategori</span><span class="p">,</span> <span class="n">current_page</span><span class="p">,</span> <span class="n">total_pages</span><span class="p">):</span>
     <span class="n">percent</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_page</span> <span class="o">/</span> <span class="n">total_pages</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
     <span class="n">bar_length</span> <span class="o">=</span> <span class="mi">20</span>
     <span class="n">filled_length</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">bar_length</span> <span class="o">*</span> <span class="n">current_page</span> <span class="o">//</span> <span class="n">total_pages</span><span class="p">)</span>
@@ -537,7 +494,7 @@ Successfully installed gensim-4.4.0 smart_open-7.5.0 wrapt-2.0.1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fungsi untuk ambil konten artikel</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fungsi untuk ambil konten artikel</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">get_article_content</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;Mozilla/5.0&quot;</span><span class="p">})</span>
     <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
@@ -559,14 +516,14 @@ Successfully installed gensim-4.4.0 smart_open-7.5.0 wrapt-2.0.1
 <h2>Crawling Data Berita<a class="headerlink" href="#crawling-data-berita" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;olahraga&quot;</span><span class="p">,</span> <span class="s2">&quot;politik&quot;</span><span class="p">,</span> <span class="s2">&quot;hukum&quot;</span><span class="p">,</span> <span class="s2">&quot;ekonomi&quot;</span><span class="p">,</span> <span class="s2">&quot;lingkungan&quot;</span><span class="p">,</span> <span class="s2">&quot;internasional&quot;</span><span class="p">,</span> <span class="s2">&quot;otomotif&quot;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;olahraga&quot;</span><span class="p">,</span> <span class="s2">&quot;politik&quot;</span><span class="p">,</span> <span class="s2">&quot;hukum&quot;</span><span class="p">,</span> <span class="s2">&quot;ekonomi&quot;</span><span class="p">,</span> <span class="s2">&quot;lingkungan&quot;</span><span class="p">,</span> <span class="s2">&quot;internasional&quot;</span><span class="p">,</span> <span class="s2">&quot;otomotif&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">berita</span><span class="p">(</span><span class="n">categories</span><span class="p">,</span> <span class="n">pages_per_category</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">berita</span><span class="p">(</span><span class="n">categories</span><span class="p">,</span> <span class="n">pages_per_category</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>  <span class="c1"># mulai hitung waktu</span>
 
     <span class="n">BASE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://www.tempo.co/indeks?page=</span><span class="si">{}</span><span class="s2">&amp;category=rubrik&amp;rubric_slug=</span><span class="si">{}</span><span class="s2">&quot;</span>
@@ -624,22 +581,36 @@ Successfully installed gensim-4.4.0 smart_open-7.5.0 wrapt-2.0.1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita</span><span class="p">(</span><span class="n">categories</span><span class="p">,</span> <span class="n">pages_per_category</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">berita</span><span class="p">(</span><span class="n">categories</span><span class="p">,</span> <span class="n">pages_per_category</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>olahraga - Page 1/8 [██------------------] 12.50%
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>olahraga - Page 2/8 [█████---------------] 25.00%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>olahraga - Page 8/8 [████████████████████] 100.00%
+
+politik - Page 8/8 [████████████████████] 100.00%
+
+hukum - Page 8/8 [████████████████████] 100.00%
+
+ekonomi - Page 8/8 [████████████████████] 100.00%
+
+lingkungan - Page 8/8 [████████████████████] 100.00%
+
+internasional - Page 8/8 [████████████████████] 100.00%
+
+otomotif - Page 8/8 [████████████████████] 100.00%
+
+
+✅ Seluruh data berhasil dikumpulkan!
+📊 Total entri: 1120
+⏱️ Waktu eksekusi: 0 jam 22 menit 41 detik
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tempo_berita.csv&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tempo_berita.csv&quot;</span><span class="p">)</span>
 <span class="n">berita_df</span>
 </pre></div>
 </div>
@@ -1024,7 +995,7 @@ Successfully installed gensim-4.4.0 smart_open-7.5.0 wrapt-2.0.1
 <h2>Pra-Premrosesan Data<a class="headerlink" href="#pra-premrosesan-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download tokenizer</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download tokenizer</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;punkt&quot;</span><span class="p">)</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;punkt_tab&quot;</span><span class="p">)</span>
 
@@ -1051,7 +1022,7 @@ Successfully installed gensim-4.4.0 smart_open-7.5.0 wrapt-2.0.1
 <h3>Pembersihan Teks<a class="headerlink" href="#pembersihan-teks" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fungsi cleaning dengan emoji</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fungsi cleaning dengan emoji</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">clean_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;&quot;</span>
@@ -1076,7 +1047,7 @@ Successfully installed gensim-4.4.0 smart_open-7.5.0 wrapt-2.0.1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="p">[[</span><span class="s2">&quot;isi_berita&quot;</span><span class="p">,</span> <span class="s2">&quot;isi_berita_clean&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="p">[[</span><span class="s2">&quot;isi_berita&quot;</span><span class="p">,</span> <span class="s2">&quot;isi_berita_clean&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1350,7 +1321,7 @@ Successfully installed gensim-4.4.0 smart_open-7.5.0 wrapt-2.0.1
 <h3>Tokenisasi<a class="headerlink" href="#tokenisasi" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tokenisasi untuk isi berita</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tokenisasi untuk isi berita</span>
 <span class="n">berita_df</span><span class="p">[</span><span class="s2">&quot;isi_berita_tokens&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">berita_df</span><span class="p">[</span><span class="s2">&quot;isi_berita_clean&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">word_tokenize</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1358,7 +1329,7 @@ Successfully installed gensim-4.4.0 smart_open-7.5.0 wrapt-2.0.1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="p">[[</span><span class="s2">&quot;isi_berita_clean&quot;</span><span class="p">,</span> <span class="s2">&quot;isi_berita_tokens&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="p">[[</span><span class="s2">&quot;isi_berita_clean&quot;</span><span class="p">,</span> <span class="s2">&quot;isi_berita_tokens&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1632,7 +1603,7 @@ Successfully installed gensim-4.4.0 smart_open-7.5.0 wrapt-2.0.1
 <h3>Penghapusan Kata Umum (Stopwords)<a class="headerlink" href="#penghapusan-kata-umum-stopwords" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stopwords untuk bahasa Indonesia</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stopwords untuk bahasa Indonesia</span>
 <span class="n">stop_words_id</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;indonesian&#39;</span><span class="p">))</span>
 
 <span class="c1"># Filter stopwords di PTA</span>
@@ -1645,7 +1616,7 @@ Successfully installed gensim-4.4.0 smart_open-7.5.0 wrapt-2.0.1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="p">[[</span><span class="s2">&quot;isi_berita_tokens&quot;</span><span class="p">,</span> <span class="s2">&quot;isi_berita_filtered&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="p">[[</span><span class="s2">&quot;isi_berita_tokens&quot;</span><span class="p">,</span> <span class="s2">&quot;isi_berita_filtered&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1919,7 +1890,7 @@ Successfully installed gensim-4.4.0 smart_open-7.5.0 wrapt-2.0.1
 <h3>Stemming<a class="headerlink" href="#stemming" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factory</span> <span class="o">=</span> <span class="n">StemmerFactory</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">factory</span> <span class="o">=</span> <span class="n">StemmerFactory</span><span class="p">()</span>
 <span class="n">indo_stemmer</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">create_stemmer</span><span class="p">()</span>
 
 <span class="n">berita_df</span><span class="p">[</span><span class="s2">&quot;isi_berita_stemmed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">berita_df</span><span class="p">[</span><span class="s2">&quot;isi_berita_filtered&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
@@ -1931,7 +1902,7 @@ Successfully installed gensim-4.4.0 smart_open-7.5.0 wrapt-2.0.1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="p">[[</span><span class="s2">&quot;isi_berita_filtered&quot;</span><span class="p">,</span> <span class="s2">&quot;isi_berita_stemmed&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="p">[[</span><span class="s2">&quot;isi_berita_filtered&quot;</span><span class="p">,</span> <span class="s2">&quot;isi_berita_stemmed&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2205,7 +2176,7 @@ Successfully installed gensim-4.4.0 smart_open-7.5.0 wrapt-2.0.1
 <h3>Ekspansi Kontraksi (Contraction Expansion / Normalisasi Kata)<a class="headerlink" href="#ekspansi-kontraksi-contraction-expansion-normalisasi-kata" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fungsi expand kontraksi bahasa Indonesia</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fungsi expand kontraksi bahasa Indonesia</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">expand_indonesian_contractions</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
   <span class="n">contractions_dict</span> <span class="o">=</span> <span class="p">{</span>
       <span class="c1"># ======== Umum ========</span>
@@ -2357,7 +2328,7 @@ Successfully installed gensim-4.4.0 smart_open-7.5.0 wrapt-2.0.1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="p">[[</span><span class="s2">&quot;isi_berita_stemmed&quot;</span><span class="p">,</span> <span class="s2">&quot;isi_berita_expanded&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="p">[[</span><span class="s2">&quot;isi_berita_stemmed&quot;</span><span class="p">,</span> <span class="s2">&quot;isi_berita_expanded&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2631,7 +2602,7 @@ Successfully installed gensim-4.4.0 smart_open-7.5.0 wrapt-2.0.1
 <h3>Pemeriksaan Ejaan<a class="headerlink" href="#pemeriksaan-ejaan" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inisialisasi SpellChecker kosong</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inisialisasi SpellChecker kosong</span>
 <span class="n">spell</span> <span class="o">=</span> <span class="n">SpellChecker</span><span class="p">(</span><span class="n">language</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
 <span class="c1"># Load kamus Indonesia dari file</span>
@@ -2663,7 +2634,7 @@ Successfully installed gensim-4.4.0 smart_open-7.5.0 wrapt-2.0.1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="p">[[</span><span class="s2">&quot;isi_berita_expanded&quot;</span><span class="p">,</span> <span class="s2">&quot;isi_berita_spellchecked&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="p">[[</span><span class="s2">&quot;isi_berita_expanded&quot;</span><span class="p">,</span> <span class="s2">&quot;isi_berita_spellchecked&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2937,7 +2908,7 @@ Successfully installed gensim-4.4.0 smart_open-7.5.0 wrapt-2.0.1
 <h3>Analisis Frekuensi Kata<a class="headerlink" href="#analisis-frekuensi-kata" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gabungkan semua token jadi satu list besar</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gabungkan semua token jadi satu list besar</span>
 <span class="n">all_tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">tokens</span> <span class="ow">in</span> <span class="n">berita_df</span><span class="p">[</span><span class="s2">&quot;isi_berita_spellchecked&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">]</span>
 
 <span class="c1"># Hitung frekuensi kata</span>
@@ -2980,7 +2951,7 @@ Rata-rata kata per data : 224.16 kata
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ubah list token jadi string (gabungkan dengan spasi)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ubah list token jadi string (gabungkan dengan spasi)</span>
 <span class="n">berita_df</span><span class="p">[</span><span class="s2">&quot;isi_berita_hasil_praproses&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">berita_df</span><span class="p">[</span><span class="s2">&quot;isi_berita_spellchecked&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
 <span class="c1"># Simpan semua kolom ke CSV</span>
@@ -2998,7 +2969,7 @@ Rata-rata kata per data : 224.16 kata
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;berita_df_full.csv&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;berita_df_full.csv&quot;</span><span class="p">)</span>
 <span class="n">berita_df</span>
 </pre></div>
 </div>
@@ -3464,7 +3435,7 @@ Rata-rata kata per data : 224.16 kata
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simpan semua kata + frekuensi ke CSV</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simpan semua kata + frekuensi ke CSV</span>
 <span class="n">word_freq_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">word_freq</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;kata&quot;</span><span class="p">,</span> <span class="s2">&quot;jumlah&quot;</span><span class="p">])</span>
 <span class="n">word_freq_df</span> <span class="o">=</span> <span class="n">word_freq_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;jumlah&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">word_freq_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;berita_word_frequency.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8-sig&quot;</span><span class="p">)</span>
@@ -3481,7 +3452,7 @@ Rata-rata kata per data : 224.16 kata
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita_freq_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;berita_word_frequency.csv&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">berita_freq_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;berita_word_frequency.csv&quot;</span><span class="p">)</span>
 <span class="n">berita_freq_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -3757,7 +3728,7 @@ Rata-rata kata per data : 224.16 kata
 <h2>TF-IDF<a class="headerlink" href="#tf-idf" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
 <span class="n">tfidf_matrix</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">berita_df</span><span class="p">[</span><span class="s1">&#39;isi_berita_hasil_praproses&#39;</span><span class="p">])</span>
 
 <span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
@@ -3770,7 +3741,7 @@ Rata-rata kata per data : 224.16 kata
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">TF-IDF shape:&quot;</span><span class="p">,</span> <span class="n">tfidf_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">TF-IDF shape:&quot;</span><span class="p">,</span> <span class="n">tfidf_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">tfidf_df</span>
 </pre></div>
 </div>
@@ -4362,7 +4333,7 @@ Rata-rata kata per data : 224.16 kata
 <h2>Word Embeding<a class="headerlink" href="#word-embeding" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corpus</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">corpus</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">berita_df</span><span class="p">[</span><span class="s1">&#39;isi_berita_hasil_praproses&#39;</span><span class="p">]:</span>
    <span class="n">word_list</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
    <span class="n">corpus</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word_list</span><span class="p">)</span>
@@ -4378,7 +4349,7 @@ Rata-rata kata per data : 224.16 kata
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># explore embeddings using cosine similarity</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># explore embeddings using cosine similarity</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kata mirip dengan &#39;politik&#39;:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s1">&#39;politik&#39;</span><span class="p">,</span> <span class="n">topn</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
 
@@ -4413,7 +4384,7 @@ Cosmul (olahraga + pemain - cedera):
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyTokenizer</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyTokenizer</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">):</span>
         <span class="c1"># Tokenisasi sederhana: lowercase + split</span>
         <span class="k">return</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">]</span>
@@ -4450,7 +4421,7 @@ Cosmul (olahraga + pemain - cedera):
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -4462,7 +4433,7 @@ Cosmul (olahraga + pemain - cedera):
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_embedding_vectorizer</span> <span class="o">=</span> <span class="n">MeanEmbeddingVectorizer</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mean_embedding_vectorizer</span> <span class="o">=</span> <span class="n">MeanEmbeddingVectorizer</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <span class="n">mean_embedded</span> <span class="o">=</span> <span class="n">mean_embedding_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">berita_df</span><span class="p">[</span><span class="s1">&#39;isi_berita_hasil_praproses&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -4470,14 +4441,14 @@ Cosmul (olahraga + pemain - cedera):
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="p">[</span><span class="s1">&#39;array&#39;</span><span class="p">]</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">mean_embedded</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="p">[</span><span class="s1">&#39;array&#39;</span><span class="p">]</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">mean_embedded</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="p">[[</span><span class="s2">&quot;isi_berita_hasil_praproses&quot;</span><span class="p">,</span> <span class="s2">&quot;array&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="p">[[</span><span class="s2">&quot;isi_berita_hasil_praproses&quot;</span><span class="p">,</span> <span class="s2">&quot;array&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4773,14 +4744,14 @@ Cosmul (olahraga + pemain - cedera):
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="p">[</span><span class="s1">&#39;embedding_length&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">berita_df</span><span class="p">[</span><span class="s1">&#39;array&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="p">[</span><span class="s1">&#39;embedding_length&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">berita_df</span><span class="p">[</span><span class="s1">&#39;array&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">berita_df</span><span class="p">[</span><span class="s1">&#39;embedding_length&#39;</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">berita_df</span><span class="p">[</span><span class="s1">&#39;embedding_length&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -4803,7 +4774,7 @@ Name: embedding_length, Length: 1120, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">berita_df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -4815,7 +4786,7 @@ Name: embedding_length, Length: 1120, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">berita_df</span><span class="p">[</span><span class="s1">&#39;array&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># asumsi semua list punya panjang sama</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">berita_df</span><span class="p">[</span><span class="s1">&#39;array&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># asumsi semua list punya panjang sama</span>
 <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;f</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_features</span><span class="p">)]</span>
 
 <span class="c1"># Inisialisasi dictionary untuk menampung data per kolom</span>
@@ -4834,7 +4805,7 @@ Name: embedding_length, Length: 1120, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embedding_df</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">embedding_df</span>
 </pre></div>
 </div>
 </div>
@@ -5419,7 +5390,7 @@ Name: embedding_length, Length: 1120, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embedding_df</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">embedding_df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -5434,7 +5405,7 @@ Name: embedding_length, Length: 1120, dtype: int64
 <h2>Klasifikasi LDA<a class="headerlink" href="#klasifikasi-lda" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;isi_berita_tokens_hasil&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">berita_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;isi_berita_tokens_hasil&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">berita_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
     <span class="n">berita_df</span><span class="p">[</span><span class="s1">&#39;isi_berita_tokens_hasil&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">berita_df</span><span class="p">[</span><span class="s1">&#39;isi_berita_hasil_praproses&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
 
 <span class="c1"># Dataset teks tokenized</span>
@@ -5445,7 +5416,7 @@ Name: embedding_length, Length: 1120, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Buat dictionary dan corpus</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Buat dictionary dan corpus</span>
 <span class="n">dictionary</span> <span class="o">=</span> <span class="n">corpora</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
 <span class="n">corpus</span> <span class="o">=</span> <span class="p">[</span><span class="n">dictionary</span><span class="o">.</span><span class="n">doc2bow</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">]</span>
 </pre></div>
@@ -5454,7 +5425,7 @@ Name: embedding_length, Length: 1120, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># === Evaluasi jumlah topik optimal ===</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># === Evaluasi jumlah topik optimal ===</span>
 <span class="n">coherence_values</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">model_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">topic_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
@@ -5515,7 +5486,7 @@ Name: embedding_length, Length: 1120, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">optimal_model</span><span class="o">.</span><span class="n">print_topics</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">optimal_model</span><span class="o">.</span><span class="n">print_topics</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Topik </span><span class="si">{</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -5550,7 +5521,7 @@ Topik 12: 0.021*&quot;pengadilan&quot; + 0.020*&quot;tinggi&quot; + 0.014*&quot;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dominant_topics</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dominant_topics</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">doc_bow</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">corpus</span><span class="p">):</span>
     <span class="n">topics_in_doc</span> <span class="o">=</span> <span class="n">optimal_model</span><span class="o">.</span><span class="n">get_document_topics</span><span class="p">(</span><span class="n">doc_bow</span><span class="p">,</span> <span class="n">minimum_probability</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -5900,7 +5871,7 @@ Topik 12: 0.021*&quot;pengadilan&quot; + 0.020*&quot;tinggi&quot; + 0.014*&quot;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distribution</span> <span class="o">=</span> <span class="p">[</span><span class="n">optimal_model</span><span class="o">.</span><span class="n">get_document_topics</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">minimum_probability</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distribution</span> <span class="o">=</span> <span class="p">[</span><span class="n">optimal_model</span><span class="o">.</span><span class="n">get_document_topics</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">minimum_probability</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">]</span>
 <span class="n">n_docs</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">topic_distribution</span><span class="p">))</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">prob</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">topic_distribution</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_docs</span><span class="p">)])</span>
 
@@ -5929,7 +5900,7 @@ Topik 12: 0.021*&quot;pengadilan&quot; + 0.020*&quot;tinggi&quot; + 0.014*&quot;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distribution</span> <span class="o">=</span> <span class="p">[</span><span class="n">optimal_model</span><span class="o">.</span><span class="n">get_document_topics</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">minimum_probability</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distribution</span> <span class="o">=</span> <span class="p">[</span><span class="n">optimal_model</span><span class="o">.</span><span class="n">get_document_topics</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">minimum_probability</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">]</span>
 
 <span class="n">num_docs_to_show</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">topic_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">score</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">]</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">topic_distribution</span><span class="p">[:</span><span class="n">num_docs_to_show</span><span class="p">]])</span>
@@ -5950,7 +5921,7 @@ Topik 12: 0.021*&quot;pengadilan&quot; + 0.020*&quot;tinggi&quot; + 0.014*&quot;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df_result</span><span class="p">[</span><span class="s2">&quot;isi_berita_hasil_praproses&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>  <span class="c1"># teks input</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df_result</span><span class="p">[</span><span class="s2">&quot;isi_berita_hasil_praproses&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>  <span class="c1"># teks input</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">df_result</span><span class="p">[</span><span class="s2">&quot;kategori_berita&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>   <span class="c1"># label kategori</span>
 
 <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">max_features</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
@@ -5965,7 +5936,7 @@ Topik 12: 0.021*&quot;pengadilan&quot; + 0.020*&quot;tinggi&quot; + 0.014*&quot;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_model</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">svm_model</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">svm_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 <span class="n">y_pred_svm</span> <span class="o">=</span> <span class="n">svm_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 
@@ -5979,7 +5950,7 @@ Topik 12: 0.021*&quot;pengadilan&quot; + 0.020*&quot;tinggi&quot; + 0.014*&quot;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">evaluasi_model</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">model_name</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">evaluasi_model</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">model_name</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Evaluasi Model: </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2"> ===&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy :&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precision:&quot;</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;weighted&#39;</span><span class="p">))</span>
@@ -5999,7 +5970,7 @@ Topik 12: 0.021*&quot;pengadilan&quot; + 0.020*&quot;tinggi&quot; + 0.014*&quot;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🔍 Evaluasi Model SVM&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🔍 Evaluasi Model SVM&quot;</span><span class="p">)</span>
 <span class="n">evaluasi_model</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_svm</span><span class="p">,</span> <span class="s2">&quot;SVM&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6033,7 +6004,7 @@ internasional       0.97      0.97      0.97        32
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">🔍 Evaluasi Model Softmax Regression&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">🔍 Evaluasi Model Softmax Regression&quot;</span><span class="p">)</span>
 <span class="n">evaluasi_model</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_softmax</span><span class="p">,</span> <span class="s2">&quot;Softmax Regression&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6067,7 +6038,7 @@ internasional       0.97      0.97      0.97        32
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coherence_model</span> <span class="o">=</span> <span class="n">CoherenceModel</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">optimal_model</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="n">texts</span><span class="p">,</span> <span class="n">dictionary</span><span class="o">=</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">coherence</span><span class="o">=</span><span class="s1">&#39;c_v&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">coherence_model</span> <span class="o">=</span> <span class="n">CoherenceModel</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">optimal_model</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="n">texts</span><span class="p">,</span> <span class="n">dictionary</span><span class="o">=</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">coherence</span><span class="o">=</span><span class="s1">&#39;c_v&#39;</span><span class="p">)</span>
 <span class="n">coherence</span> <span class="o">=</span> <span class="n">coherence_model</span><span class="o">.</span><span class="n">get_coherence</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Coherence Score (c_v) untuk model terbaik:&quot;</span><span class="p">,</span> <span class="n">coherence</span><span class="p">)</span>
 </pre></div>
@@ -6175,7 +6146,7 @@ internasional       0.97      0.97      0.97        32
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Surya Eka Santoso
 </p>
 
   </div>
@@ -6185,7 +6156,7 @@ By The Jupyter Book Community
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright © Copyright 2025..
       <br/>
     
   </p>
