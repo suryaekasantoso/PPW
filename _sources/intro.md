@@ -1,0 +1,3 @@
+# Profile
+
+Saya Surya Eka Santoso dengan NIM 220411100149, mahasiswa Program Studi Teknik Informatika Angkatan 22, Fakultas Teknik, Universitas Trunojoyo Madura. Bidang minat yang sedang saya tekuni adalah pengembangan web, dengan fokus pada pembuatan aplikasi yang interaktif dan bermanfaat. Selain itu, saya juga tertarik pada pencarian dan penambangan web sebagai salah satu upaya untuk menggali informasi serta mengolah data dari internet agar dapat digunakan dalam berbagai kebutuhan. Untuk keperluan komunikasi lebih lanjut, saya dapat dihubungi melalui email suryaekax@gmail.com.
